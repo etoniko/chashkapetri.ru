@@ -1,124 +1,448 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Чашка Петри - от науке к игре!</title>
-<meta name="description" content="Узнайте, что такое чашка петри, как растут бактерии, грибки и микроорганизмы. Исследуйте микромир, наблюдайте рост колоний и управляйте виртуальной клеткой в игре Agar прямо сейчас!" />
-<meta name="keywords" content="чашка петри, бактерии, микробиология, микроорганизмы, колонии, Agar, игра, виртуальная клетка, лабораторные эксперименты" />
-<meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://chashkapetri.ru/" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Чашка Петри — от науки к игре | Микробиология и Agar</title>
+    <meta name="description" content="Чашка Петри: лабораторный инструмент, изменивший биологию, и игра Agar, симулирующая рост колоний. Выращивайте бактерии, управляйте клеткой, узнавайте факты.">
+    <meta name="keywords" content="чашка петри, бактерии, агар, микробиология, игра Agar, колонии микроорганизмов, petri dish">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://chashkapetri.ru/">
+    <link rel="shortcut icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%231d6fff'/%3E%3Ccircle cx='50' cy='50' r='30' fill='white'/%3E%3Cpath d='M50 35 L58 50 L50 65 L42 50 Z' fill='%231d6fff'/%3E%3C/svg%3E">
+    
+    <!-- Google Fonts + Material Icons (шрифтовые иконки) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&family=Google+Material+Icons&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined" rel="stylesheet">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Чашка Петри — микромир, наука и игра Agar">
+    <meta property="og:description" content="Исследуйте бактериальные колонии, узнайте историю чашки Петри и играйте в Agar — симулятор клетки в реальном времени.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://chashkapetri.ru/">
+    <meta property="og:image" content="https://chashkapetri.ru/preview.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Yandex.Metrika and verification -->
+    <meta name="yandex-verification" content="781cec9eeff090ed">
+    <script async src="https://mc.yandex.ru/metrika/tag.js"></script>
+    <script>
+        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+        (window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js', 'ym');
+        ym(107217238, 'init', {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/107217238" style="position:absolute; left:-9999px;" alt=""/></div></noscript>
+    
+    <!-- Yandex.RTB -->
+    <script>window.yaContextCb=window.yaContextCb||[]</script>
+    <script src="https://yandex.ru/ads/system/context.js" async></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<!-- Favicon -->
-<link rel="shortcut icon" href="/favicon.ico">
+        body {
+            background: #f4f7fe;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: #0f1f3a;
+            line-height: 1.5;
+        }
 
-<!-- Open Graph -->
-<meta property="og:title" content="Чашка Петри — бактерии, микромир и игра Agar" />
-<meta property="og:description" content="Узнайте, что такое Чашка Петри и как растут бактерии. Попробуйте управлять виртуальной клеткой в игре Agar и исследуйте микромир прямо сейчас!" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://chashkapetri.ru/" />
-<meta property="og:image" content="https://chashkapetri.ru/preview.jpg" />
+        /* контейнер с максимальной шириной */
+        .app-container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 28px 24px 56px;
+        }
 
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Чашка Петри — бактерии, микромир и игра Agar" />
-<meta name="twitter:description" content="Узнайте, что такое чашка Петри и как растут бактерии. Попробуйте управлять виртуальной клеткой в игре Agar и исследуйте микромир прямо сейчас!" />
-<meta name="twitter:image" content="https://chashkapetri.ru/preview.jpg" />
-<meta name="yandex-verification" content="781cec9eeff090ed" />
-<meta name="google-site-verification" content="07SgJROuUtNgFbWxzd2ewd7oQb0RZxNJe18WMR67xOw" />
-	<!-- Yandex.Metrika counter -->
-<script type="text/javascript">
-    (function(m,e,t,r,i,k,a){
-        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-        m[i].l=1*new Date();
-        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=107217238', 'ym');
+        /* сетка как у современных сервисов (vk/deepseek style) */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 340px;
+            gap: 40px;
+            align-items: start;
+        }
 
-    ym(107217238, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-</script>
-<noscript><div><img src="https://mc.yandex.ru/watch/107217238" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-<!-- /Yandex.Metrika counter -->
-<!-- Yandex.RTB -->
-<script>window.yaContextCb=window.yaContextCb||[]</script>
-<script src="https://yandex.ru/ads/system/context.js" async></script>
-<!-- Yandex.RTB R-A-19135136-1 -->
-<script>
-window.yaContextCb.push(() => {
-    Ya.Context.AdvManager.render({
-        "blockId": "R-A-19135136-1",
-        "type": "fullscreen",
-        "platform": "touch"
-    })
-})
-</script>
+        /* главная карточка контента */
+        .hero-card {
+            background: #ffffff;
+            border-radius: 40px;
+            padding: 36px 38px;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s;
+            border: 1px solid #eef2ff;
+        }
+
+        /* сайдбар — карточки */
+        .sidebar-card {
+            background: white;
+            border-radius: 32px;
+            padding: 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 8px 20px -8px rgba(0, 0, 0, 0.04);
+            border: 1px solid #eef3fc;
+        }
+
+        .sidebar-card h3 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #0a2b5e;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* глобальные стили для иконок Material Icons */
+        .material-icons, .material-icons-outlined {
+            font-family: 'Google Material Icons', 'Material Icons Outlined', 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            color: #1e6fff;
+        }
+        .icon-sm {
+            font-size: 20px;
+            vertical-align: middle;
+        }
+        .icon-large {
+            font-size: 32px;
+        }
+        .flex-icon {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        h1 {
+            font-size: 2.9rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(130deg, #0a2b5e, #1a6dff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .lead {
+            font-size: 1.2rem;
+            color: #2b3e6b;
+            border-left: 4px solid #1e6fff;
+            padding-left: 24px;
+            margin: 20px 0 28px 0;
+            font-weight: 450;
+        }
+
+        .video-wrapper {
+            border-radius: 28px;
+            overflow: hidden;
+            margin: 28px 0 32px;
+            background: #eef2fa;
+            box-shadow: 0 12px 24px -12px rgba(0,0,0,0.12);
+        }
+        video {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+        }
+
+        .btn-primary {
+            background: #1e6fff;
+            color: white;
+            border: none;
+            padding: 14px 34px;
+            font-size: 18px;
+            font-weight: 600;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: 0.2s;
+            text-decoration: none;
+            box-shadow: 0 6px 14px rgba(30, 111, 255, 0.25);
+        }
+        .btn-primary:hover {
+            background: #0f5be0;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px -8px #1e6fff66;
+        }
+        .btn-block {
+            width: 100%;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .section-title {
+            font-size: 26px;
+            font-weight: 700;
+            color: #0a2b5e;
+            margin: 40px 0 16px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .info-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 28px 0 20px;
+        }
+        .fact-tile {
+            background: #f6faff;
+            border-radius: 24px;
+            padding: 20px 18px;
+            flex: 1;
+            min-width: 150px;
+            border: 1px solid #eef2fe;
+        }
+        .fact-number {
+            font-size: 34px;
+            font-weight: 800;
+            color: #1e6fff;
+            margin-bottom: 8px;
+        }
+        .text-muted {
+            color: #4b5e85;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 18px 0 8px;
+        }
+        .badge {
+            background: #eef3ff;
+            color: #1356c7;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .microbe-list {
+            list-style: none;
+            margin-top: 12px;
+        }
+        .microbe-list li {
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        hr {
+            margin: 24px 0;
+            border: none;
+            border-top: 1px solid #e7edf8;
+        }
+        .footer-note {
+            margin-top: 56px;
+            text-align: center;
+            padding-top: 28px;
+            border-top: 1px solid #dce5f5;
+            font-size: 14px;
+            color: #6c7d9e;
+        }
+        @media (max-width: 900px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+            .hero-card {
+                padding: 24px 22px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .app-container {
+                padding: 20px 16px;
+            }
+        }
+        @media (max-width: 550px) {
+            .fact-number {
+                font-size: 28px;
+            }
+        }
+        /* анимация */
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(10px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+        .hero-card, .sidebar-card {
+            animation: fadeSlide 0.35s ease;
+        }
+        .sticky-side {
+            position: sticky;
+            top: 24px;
+        }
+    </style>
 </head>
-<style>
-  html, body {
-    margin: 0;
-    padding: 5px;
-    font-family: 'Arial', sans-serif;
-    background: url(fon.gif);
-    color: #000000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .container {
-    max-width:900px;
-	    display: flex;
-    flex-direction: column;
-    align-items: center;
-	  background: white;
-	      padding: 50px;
-    border-radius: 30px;
-    box-shadow: 0px 0px 30px -2px rgba(0, 0, 0, 0.5);
-  }
-  h1 {
-    font-size:42px;
-    margin-bottom:20px;
-    font-weight:bold;
-  }
-  p {
-    font-size:18px;
-    margin:12px 0;
-    line-height:1.6;
-  }
-  .play-button {
-    display:inline-block;
-    margin-top:25px;
-    padding:20px 50px;
-    font-size:22px;
-    color:white;
-    text-decoration:none;
-    border-radius:12px;
-    background-color: rgb(1, 107, 239);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    font-weight:bold;
-  }
-  .play-button:hover {
-    transform: translateY(-3px);
-    box-shadow:0 8px 25px rgba(0,0,0,0.2);
-  }
-  video {
-    width:100%;
-    max-width:450px;
-    border-radius:15px;
-    margin-bottom:25px;
-    box-shadow:0 8px 25px rgba(0,0,0,0.1);
-  }
-</style>
 <body>
+<div class="app-container">
+    <div class="two-columns">
+        <!-- ОСНОВНАЯ КОЛОНКА (контент) -->
+        <div class="hero-card">
+            <div class="flex-icon" style="margin-bottom: 16px; gap: 10px;">
+                <span class="material-icons" style="font-size: 32px; color:#1e6fff;">science</span>
+                <span style="font-weight: 500; background:#eef3ff; padding: 4px 14px; border-radius: 40px; font-size: 14px;">Микробиология × Гейминг</span>
+            </div>
+            <h1>Чашка Петри: лаборатория жизни и игра Agar</h1>
+            <div class="lead">
+                От чашки с питательной средой до виртуальной арены — узнайте, как бактерии растут, конкурируют и вдохновляют популярную .io игру.
+            </div>
+            <div class="video-wrapper">
+                <video src="https://igri.fun/video/agarsu.mp4" autoplay muted loop playsinline></video>
+            </div>
+            <a href="https://agar.su" target="_blank" rel="noopener" class="btn-primary">
+                <span class="material-icons">play_arrow</span> Играть в Agar — управляй клеткой
+            </a>
 
-<div class="container">
-  <h1>Чашка Петри — от науки к игре</h1>
-  <video src="https://igri.fun/video/agarsu.mp4" autoplay muted loop playsinline></video>
-  <a class="play-button" href="https://agar.su">Играть</a>
-  <p>Чашка Петри — это прозрачная лабораторная ёмкость, используемая учёными для изучения бактерий, грибов и других микроорганизмов. Внутри чашки находится питательная среда, на которой микроорганизмы начинают расти и делиться, формируя колонии.</p>
-  <p>Каждая колония развивается из одной клетки, взаимодействует с окружающей средой и другими микроорганизмами. Этот процесс помогает исследовать поведение бактерий, их скорость роста, реакции на антибиотики и другие биологические процессы.</p>
-  <p>Игра <strong>Agar</strong> вдохновлена именно этим микромиром. Вы управляете клеткой, которая растёт, поглощая другие клетки, конкурируя и стремясь стать самой большой. Это интерактивная аналогия роста бактерий в чашке Петри, где каждый шаг зависит от стратегии и реакции окружающей среды.</p>
-  <p>Попробуйте сами, ощутите, как это — управлять микромиром, наблюдать рост колоний и взаимодействие клеток. Нажмите кнопку ниже, чтобы начать игру и стать частью виртуального микромира.</p>
+            <!-- информационный блок: устройство чашки Петри -->
+            <div class="section-title">
+                <span class="material-icons">biotech</span> 
+                <span>Что скрывает чашка Петри?</span>
+            </div>
+            <p style="margin-bottom: 18px;">Изобретённая в 1887 году Юлиусом Петри, эта неглубокая ёмкость с агаровым субстратом стала символом микробиологии. Внутри создаются идеальные условия для роста колоний: бактерии, дрожжи и плесневые грибы делятся каждые 20–60 минут, формируя видимые структуры. Учёные анализируют резистентность к антибиотикам, генетические мутации и межвидовую конкуренцию.</p>
+            <p style="margin-bottom: 22px;">Каждая колония — это потомство одной-единственной клетки. В чашке Петри можно наблюдать антагонизм (пенициллин убивает бактерии), синтрофию (совместный рост) и даже "охота" бактерий друг на друга. <strong>Agar</strong> воспроизводит эту динамику: вы — микроорганизм, который растёт, сливается, защищается и поглощает.</p>
+            
+            <div class="info-grid">
+                <div class="fact-tile">
+                    <div class="fact-number">130+ лет</div>
+                    <div class="text-muted">с момента создания первой чашки Петри</div>
+                </div>
+                <div class="fact-tile">
+                    <div class="fact-number">10⁶–10⁹</div>
+                    <div class="text-muted">бактерий в 1 мл питательной среды</div>
+                </div>
+                <div class="fact-tile">
+                    <div class="fact-number">5 млн</div>
+                    <div class="text-muted">ежемесячных игроков в Agar (оценка)</div>
+                </div>
+            </div>
+
+            <div class="section-title">
+                <span class="material-icons">stadia_controller</span>
+                <span>Игра Agar — симулятор микробной эволюции</span>
+            </div>
+            <p><strong>Agar</strong> — многопользовательская игра, где каждая клетка следует простому правилу: ешь, чтобы расти, и избегай хищников. Механика деления (пробел или W) позволяет атаковать противников или спасаться бегством, что напоминает бинарное деление бактерий и стратегии выживания. Игроки могут объединяться во временные альянсы — аналог симбиоза в природе. Рейтинговая таблица показывает топ-10 самых массивных клеток на сервере, как доминирующие колонии в реальной экосистеме.</p>
+            <p style="margin-top: 14px;">Вдохновение процессом роста на агаре превратило игру в культурный феномен. Рекомендуем испытать свои навыки в режимах FFA, Teams или Experimental. Нажмите на кнопку выше и окунитесь в мир, где вы — новорожденная бактерия в конкурентной среде.</p>
+            
+            <div class="badge-container">
+                <span class="badge">🧫 бактериофаги</span>
+                <span class="badge">🔄 гормональный рост</span>
+                <span class="badge">⚡ скорость деления</span>
+                <span class="badge">🎮 тактика поглощения</span>
+            </div>
+
+            <hr>
+            <div class="flex-icon" style="justify-content: space-between; flex-wrap: wrap;">
+                <div><span class="material-icons" style="color:#1e6fff;">lightbulb</span> <strong>Совет:</strong> Используйте разделение, чтобы поглощать более крупных.</div>
+                <div><span class="material-icons" style="color:#2b7a3e;">auto_awesome</span> Чем больше масса — тем виднее на карте.</div>
+            </div>
+        </div>
+
+        <!-- ПРАВАЯ КОЛОНКА — сайдбар с иконками font icon, контент более глубокий -->
+        <div class="sticky-side">
+            <!-- карточка: строение чашки Петри научно -->
+            <div class="sidebar-card">
+                <h3><span class="material-icons">microscope</span> Устройство & среда</h3>
+                <p><span class="material-icons icon-sm">circle</span> <strong>Агар-агар</strong> — полисахарид из водорослей, не разлагается бактериями, идеальный гель.</p>
+                <p><span class="material-icons icon-sm">straighten</span> <strong>Диаметр:</strong> 35–100 мм, стандарт 90 мм.</p>
+                <p><span class="material-icons icon-sm">thermostat</span> <strong>Инкубация:</strong> 37°C для патогенов, 25–30°C для почвенных микробов.</p>
+                <div class="badge-container">
+                    <span class="badge">LB агар</span>
+                    <span class="badge">Кровяной агар</span>
+                    <span class="badge">Сабуро</span>
+                </div>
+            </div>
+
+            <!-- карточка: интересные микроорганизмы -->
+            <div class="sidebar-card">
+                <h3><span class="material-icons">bubble_chart</span> Культовые колонии</h3>
+                <ul class="microbe-list">
+                    <li><span class="material-icons" style="color:#dd7f1f">circle</span> <strong>Staphylococcus aureus</strong> — золотистые колонии, опасный патоген.</li>
+                    <li><span class="material-icons" style="color:#227722">grass</span> <strong>Пеницилл</strong> — зелёные пушистые колонии, антибиотик.</li>
+                    <li><span class="material-icons" style="color:#4488cc">bubble_chart</span> <strong>E. coli</strong> — гладкие блестящие колонии, классика генетики.</li>
+                    <li><span class="material-icons">scatter_plot</span> <strong>Bacillus subtilis</strong> — морщинистая структура, почвенный житель.</li>
+                </ul>
+                <p class="text-muted" style="margin-top: 12px;">*В игре Agar ваша клетка может имитировать любую из этих стратегий: быстрый рост, устойчивость или агрессия.</p>
+            </div>
+
+            <!-- карточка: как игра связана с наукой (конкретные параллели) -->
+            <div class="sidebar-card">
+                <h3><span class="material-icons">compare_arrows</span> Наука ⟷ Agar</h3>
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div><span class="material-icons">trending_up</span> <strong>Рост клетки</strong> — накопление биомассы, как в жидкой культуре.</div>
+                    <div><span class="material-icons">call_split</span> <strong>Деление (split)</strong> — аналог бинарного деления, увеличение числа клеток.</div>
+                    <div><span class="material-icons">gps_fixed</span> <strong>Хемотаксис</strong> — движение к пищевым частицам, грибкам.</div>
+                    <div><span class="material-icons">warning</span> <strong>Хищничество</strong> — как бактерия Bdellovibrio атакует других.</div>
+                </div>
+            </div>
+
+            <!-- рекламный виджет Яндекс.RTB в стиле ванильной карточки -->
+            <div class="sidebar-card" style="padding: 12px 12px 8px 12px;">
+                <div style="font-size: 13px; font-weight: 500; color:#6f7ea0; margin-bottom: 10px; display: flex; gap: 6px;"><span class="material-icons" style="font-size: 18px;">ads_click</span> Научные проекты</div>
+                <div id="yandex_rtb_here" style="min-height: 240px; background: #F8FBFF; border-radius: 24px;"></div>
+            </div>
+            
+            <!-- карточка-лайфхак по игре и микроскопии -->
+            <div class="sidebar-card">
+                <h3><span class="material-icons">tips_and_updates</span> Эксперименты дома</h3>
+                <p><span class="material-icons icon-sm">kitchen</span> Можно вырастить бактерии с яблока или рук в чашке Петри с агаром (купить в интернете). </p>
+                <p><span class="material-icons icon-sm">sports_esports</span> После наблюдения поиграйте в Agar — почувствуйте ту же динамику роста и борьбы за ресурсы.</p>
+                <div class="badge-container">
+                    <span class="badge">#DIYмикробиология</span>
+                    <span class="badge">безопасность прежде всего</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- расширенный нижний блок информации (статьи, факты, увлечение) с использование font icons-->
+    <div style="background: white; border-radius: 36px; margin-top: 48px; padding: 32px 36px; border: 1px solid #eef2ff;">
+        <div style="display: flex; flex-wrap: wrap; gap: 32px; justify-content: space-between;">
+            <div style="flex: 1;">
+                <div class="flex-icon" style="margin-bottom: 16px;"><span class="material-icons" style="font-size: 28px;">history_edu</span><h3 style="font-weight: 700; margin: 0; font-size: 20px;">История открытий</h3></div>
+                <p class="text-muted">Чашка Петри подарила человечеству антибиотики: Александр Флеминг заметил, что плесень Penicillium уничтожает стафилококк именно в такой чашке. Сегодня без неё невозможны диагностика инфекций, тестирование вакцин и биоинженерия. Каждый лабораторный эксперимент — это микро- вселенная борьбы и роста, что блестяще передаёт механика Agar.</p>
+            </div>
+            <div style="flex: 1;">
+                <div class="flex-icon" style="margin-bottom: 16px;"><span class="material-icons" style="font-size: 28px;">insights</span><h3 style="font-weight: 700; margin: 0; font-size: 20px;">Почему Agar популярен?</h3></div>
+                <p class="text-muted">Миллионы игроков ценят Agar за простые правила и глубокую стратегию. 10-минутные матчи, элементы психологии, погони и риск — это цифровая аллегория микробной экологии. Играйте вместе с друзьями, осваивайте тактику «разделяй и властвуй» и следите за лидерами таблицы.</p>
+            </div>
+            <div style="flex: 1;">
+                <div class="flex-icon" style="margin-bottom: 16px;"><span class="material-icons" style="font-size: 28px;">book</span><h3 style="font-weight: 700; margin: 0; font-size: 20px;">Образовательный ресурс</h3></div>
+                <p class="text-muted">Данный сайт объединяет реальную микробиологию и игровой опыт. Учителя используют чашку Петри на уроках биологии, а Agar — для демонстрации конкурентной борьбы. Погружайтесь в знания через увлекательный геймплей!</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <span class="material-icons" style="font-size: 16px; vertical-align: middle;">copyright</span> 2025 Чашка Петри — наука, игры и виртуальные микроорганизмы. Agar.su — официальный портал игры. Данные о бактериях основаны на открытых источниках.
+    </div>
 </div>
 
+<!-- Yandex RTB инициализация -->
+<script>
+    window.yaContextCb.push(() => {
+        Ya.Context.AdvManager.render({
+            blockId: "R-A-19135136-2",
+            renderTo: "yandex_rtb_here",
+            type: "feed"
+        });
+    });
+</script>
 </body>
 </html>
